@@ -1,21 +1,21 @@
-From df2b8c719ab2ce9768458f1449554a08e21fe0df Mon Sep 17 00:00:00 2001
-From: Jan Janssen <jan-janssen@users.noreply.github.com>
-Date: Wed, 21 Aug 2024 17:50:29 +0200
-Subject: [PATCH] Update setup.cfg
+From bdd7fd54d5e53d26d01678ad76b5ab4312b91078 Mon Sep 17 00:00:00 2001
+From: Jan Janssen <janssen@mpie.de>
+Date: Wed, 21 Aug 2024 18:17:34 +0200
+Subject: [PATCH] fix cache
 
 ---
  setup.cfg | 1 -
  1 file changed, 1 deletion(-)
 
 diff --git a/setup.cfg b/setup.cfg
-index 78f9f42..14f9c86 100644
+index ef5d747..58439ca 100644
 --- a/setup.cfg
 +++ b/setup.cfg
 @@ -22,7 +22,6 @@ install_requires =
-     PyYAML>=6,<7
-     click>=8,<9
-     html5lib>=1,<2
--    lru-cache<1
-     pandas>=2,<3
-     pydantic>=2
-     pydantic-settings
+ 	PyYAML>=6,<7
+ 	click>=8,<9
+ 	html5lib>=1,<2
+-	lru-cache<1
+ 	pandas>=2,<3
+ 	pydantic>=2
+ 	pydantic-settings
