@@ -1,5 +1,5 @@
 {% set name = "dsms-sdk" %}
-{% set version = "1.3.4" %}
+{% set version = "2.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,9 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dsms_sdk-{{ version }}.tar.gz
-  sha256: 5c7281cd65200d13a5cefd50bc8a92fcb5e20bd3e6c8976f6424fa089b2d1a95
+  sha256: 404667cead73a5aa2960d4d4ad68cef2a9a37bb84a22991130053a626fdf1067
+  patches:
+    - cache.patch
 
 build:
   noarch: python
@@ -19,6 +21,12 @@ requirements:
     - python >=3.8
     - pip
   run:
+    - click >=8,<9
+    - html5lib >=1,<2
+    - python-dotenv
+    - pyyaml >=6,<7
+    - qrcode-artistic >=3,<4
+    - segno >=1.6,<1.7
     - python >=3.8
     - pandas >=2,<3
     - pydantic >=2
