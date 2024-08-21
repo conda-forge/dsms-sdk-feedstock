@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dsms_sdk-{{ version }}.tar.gz
   sha256: 404667cead73a5aa2960d4d4ad68cef2a9a37bb84a22991130053a626fdf1067
+  patches:
+    - cache.patch
 
 build:
   noarch: python
