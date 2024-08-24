@@ -21,7 +21,6 @@ requirements:
     - python >=3.8
     - pip
   run:
-    - lru-cache <1
     - click >=8,<9
     - html5lib >=1,<2
     - python-dotenv
