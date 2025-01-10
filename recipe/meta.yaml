@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dsms_sdk-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dsms_sdk-{{ version }}.tar.gz
   sha256: 219c8bf659ea300231be2303d5c5534dc722ad71bdd810fbf65a6d873b88096d
   patches:
     - cache.patch
@@ -14,12 +14,13 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
     - click >=8,<9
     - html5lib >=1,<2
@@ -27,7 +28,7 @@ requirements:
     - pyyaml >=6,<7
     - qrcode-artistic >=3,<4
     - segno >=1.6,<1.7
-    - python >=3.8
+    - python >={{ python_min }}
     - pandas >=2,<3
     - pydantic >=2
     - pydantic-settings
@@ -41,6 +42,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/MI-FraunhoferIWM/dsms-python-sdk
