@@ -16,6 +16,6 @@ index ef5d747..58439ca 100644
  	click>=8,<9
  	html5lib>=1,<2
 -	lru-cache<1
+  oyaml==1
  	pandas>=2,<3
- 	pydantic>=2
- 	pydantic-settings
+ 	pydantic>=2,<3
