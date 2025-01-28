@@ -1,5 +1,5 @@
 {% set name = "dsms-sdk" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dsms_sdk-{{ version }}.tar.gz
-  sha256: bf21fe939599b13e152ab301a9f84cd76a2820b4528f03168b1ac35cd7c7b4e2
+  sha256: 610f575c00d83b3d1b3359fd22c86fc6811b81ed13ed1b7c6c8a642ee01cb4fc
   patches:
     - cache.patch
 
@@ -22,6 +22,7 @@ requirements:
     - pip
     - setuptools
   run:
+    - lru-cache <1
     - oyaml ==1
     - click >=8,<9
     - html5lib >=1,<2
