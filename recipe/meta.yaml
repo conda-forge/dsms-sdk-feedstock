@@ -22,7 +22,6 @@ requirements:
     - pip
     - setuptools
   run:
-    - lru-cache <1
     - oyaml ==1
     - click >=8,<9
     - html5lib >=1,<2
