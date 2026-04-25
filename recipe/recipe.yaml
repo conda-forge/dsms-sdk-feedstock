@@ -1,24 +1,27 @@
-{% set name = "dsms-sdk" %}
-{% set version = "4.1.1" %}
+schema_version: 1
+
+context:
+  name: dsms-sdk
+  version: 4.1.1
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/dsms_sdk-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dsms_sdk-${{ version }}.tar.gz
   sha256: e7ba2ee0819af2d28fad2995d01b9ad9928100cd00ebbf9243cb9f125ee71d23
   patches:
     - cache.patch
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}.*
     - pip
     - setuptools
   run:
@@ -29,27 +32,30 @@ requirements:
     - pyyaml >=6,<7
     - qrcode-artistic >=3,<4
     - segno >=1.6,<1.7
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - pandas >=2,<3
     - pydantic >=2,<=2.11.7
     - pydantic-settings
     - rdflib >=6,<7
     - requests
 
-test:
-  imports:
-    - dsms
-  commands:
-    - pip check
-  requires:
-    - pip
-    - python {{ python_min }}
+tests:
+  - python:
+      imports:
+        - dsms
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
 
 about:
-  home: https://github.com/MI-FraunhoferIWM/dsms-python-sdk
   summary: Python SDK core-package for working with the Dataspace Management System (DSMS).
   license: BSD-3-Clause
   license_file: LICENSE
+  homepage: https://github.com/MI-FraunhoferIWM/dsms-python-sdk
 
 extra:
   recipe-maintainers:
