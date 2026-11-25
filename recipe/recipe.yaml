@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dsms-sdk
-  version: 4.1.1
+  version: "5.0.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,12 +10,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/dsms_sdk-${{ version }}.tar.gz
-  sha256: e7ba2ee0819af2d28fad2995d01b9ad9928100cd00ebbf9243cb9f125ee71d23
+  sha256: 8b104f84014d35c623ad9e205f8fb3a03af37033e7699d5f9f55f83178217275
   patches:
     - cache.patch
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
